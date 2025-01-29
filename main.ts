@@ -1,14 +1,11 @@
 import { MongoClient } from "mongodb";
 import { ContactModel, EquipoModel } from "./types.ts";
-import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 import { fromModelToContact, fromModelToEquipo } from "./utils.ts";
 import { ObjectId } from "mongodb";
 
-const env = await load();
-const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
+const MONGO_URL = Deno.env.get("MONGO_URL");
 if (!MONGO_URL) {
   console.error("Please provide a MONGO_URL");
-  Deno.exit(1);
 }
 
 const mongoClient = new MongoClient(MONGO_URL);
