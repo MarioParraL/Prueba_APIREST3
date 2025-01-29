@@ -14,7 +14,8 @@ export type Contact = {
   id: string;
   name: string;
   phone: string;
-  timezone: string;
+  country: string;
+  timezones: string;
   equipos: Equipo[];
 };
 
